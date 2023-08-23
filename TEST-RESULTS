@@ -1,0 +1,351 @@
+IT Akademija
+Smjer: Software Tasting and QA 
+Predmet: Software Quality Introduction
+Zadatak: Drugi Assignment
+Student: Tarik Šahinović
+
+*************************************************************************
+SISTEMSKO TESTIRANJE/ TESTIRANJE PRIHVATLJIVOSTI/ TESTIRANJE CRNE KUTIJE
+*************************************************************************
+
+***Test slučaj: Testiranje osnovnih operacija(sabiranje, oduzimanje, množenje i dijeljenje) nad dva broja(pozitivni, negativni  slučajevi) 
+                1. Sabiranje (tretira pozitivne brojeve):
+                      Izraz: 5 + 2
+                      Očekivani rezultat: 7 (7.0)
+                      Dobijeni rezultat: 7.0
+                      Ishod testa: PASS
+
+                2. Sabiranje (tretira negativne brojeve)
+                      Izraz: -5 + -2 ili -5 + (-2)
+                      Očekivani rezultat:-7 (-7.0)
+                      Dobijeni rezultat: ERROR
+                      Ishod testa: FAILURE (Kalkulator ne može sabirati negativne brojeve)
+//Testiranje u ovom test slučaju pokazalo je i da Kalkulator ne prihvata dva operativna znaka jedan do drugog, niti prihvata zagrade kojim bi se negativni izraz
+diferencirao od operativnog znaka. Stoga u daljem testiranju nećemo tretirati slučajeve u kojima je drugi broj negativan, niti slučajeve sa zagradama. 
+FAILURE: Kalkulator ne prihvata zagrade niti negativne brojeve na drugom mjestu, odnosno mjestu u kojem dva operativna znaka stoje jedan do drugog. 
+               
+                3.  Oduzimanje (tretira pozitivne brojeve):
+                      Izraz: 5 - 2
+                      Očekivani rezultat: 3 (3.0)
+                      Dobijeni rezultat: 3.0
+                      Ishod testa: PASS
+
+                4. Množenje (tretira pozitivne brojeve):
+                      Izraz: 5 * 2
+                      Očekivani rezultat: 10 (10.0)
+                      Dobijeni rezultat: 10.0
+                      Ishod testa: PASS
+                
+                5. Dijeljenje (tretira pozitivne brojeve):
+                      Izraz: 5 / 2
+                      Očekivani rezultat: 2.5
+                      Dobijeni rezultat: 2.5
+                      Ishod testa: PASS
+
+***Test slućaj: Testiranje osnovnih operacija(sabiranje, oduzimanje, množenje i dijeljenje) nad dva broja(slučaj operacija nad kombinacijom pozitivnih i negativnih brojeva) 
+
+                  1. Sabiranje dva broja od kojih je prvi negativan, a drugi pozitivan
+                     Izraz: -5 + 2
+                     Očekivani rezultat: -3 (-3.0)
+                     Dobijeni rezultat: -3 (-3.0)
+                     Ishod testa: PASS
+//Zbog utvrđenog failure-a u prvom test-case-u nećemo testirati situacije u kojima je drugi broj negativan.
+
+                  2.Oduzimanje dva broja od kojih je prvi negativan, a drugi pozitivan
+                    Izraz:-5-2
+                    Očekivani rezultat: -7 (-7.0)
+                    Dobijeni rezultat: -7.0
+                    Ishod testiranja: PASS
+
+                   3.Množenje dva broja od kojih je prvi negativan, a drugi pozitivan
+                    Izraz:-5*2
+                    Očekivani rezultat: -10 (-10.0)
+                    Dobijeni rezultat: -10.0
+                    Ishod testiranja: PASS
+
+                   4.Dijeljenje dva broja od kojih je prvi negativan, a drugi pozitivan
+                    Izraz:-5/2
+                    Očekivani rezultat: -2.5
+                    Dobijeni rezultat: -2.5
+                    Ishod testiranja: PASS
+***Test slučaj: Testiranje osnovnih operacija (sabiranje, oduzimanje, množenje i dijeljenje) nad dva decimalna broja (pozitivni i samo oni negativni izrazi u kojima
+je prvi broj negativan zbog failura utvrđenog u prvom test-case-u)
+                   1. Sabiranje (tretira decimalne brojeve u slučaju sa oba pozitivna broja):
+                      Izraz: 5.5 + 2.2
+                      Očekivani rezultat:7.7
+                      Dobijeni rezultat: 7.7
+                      Ishod testa: PASS
+
+                   2.Sabiranje (tretira decimalne brojeve u slučaju gdje je prvi broj negativan, a drugi pozitivan):
+                      Izraz: -5.5 + 2.2
+                      Očekivani rezultat: -3.3
+                      Dobijeni rezultat: -3.3
+                      Ishod testa: PASS
+                  3.Oduzimanje (tretira decimalne brojeve u slučaju sa oba pozitivna broja):
+                      Izraz: 5.5 - 2.2
+                      Očekivani rezultat:3.3
+                      Dobijeni rezultat: 3.3
+                      Ishod testa: PASS
+
+                  4.Oduzimanje (tretira decimalne brojeve u slučaju gdje je prvi broj negativan, a drugi pozitivan):
+                      Izraz: -5.5 - 2.2
+                      Očekivani rezultat: -7.7
+                      Dobijeni rezultat: -7.7
+                      Ishod testa: PASS
+                  5.Množenje (tretira decimalne brojeve u slučaju sa oba pozitivna broja):
+                      Izraz: 5.5 * 2.2
+                      Očekivani rezultat: 12.1
+                      Dobijeni rezultat: 12.1
+                      Ishod testa: PASS
+
+                  6.Množenje (tretira decimalne brojeve u slučaju gdje je prvi broj negativan, a drugi pozitivan):
+                      Izraz: -5.5 * 2.2
+                      Očekivani rezultat: -12.1
+                      Dobijeni rezultat: -12.1
+                      Ishod testa: PASS
+                  7. Dijeljenje (tretira decimalne brojeve u slučaju sa oba pozitivna broja):
+                      Izraz: 5.5 / 2.2
+                      Očekivani rezultat: 2.5
+                      Dobijeni rezultat: 2.5
+                      Ishod testa: PASS
+
+                  8.Dijeljenje (tretira decimalne brojeve u slučaju gdje je prvi broj negativan, a drugi pozitivan):
+                      Izraz: -5.5 / 2.2
+                      Očekivani rezultat: -2.5
+                      Dobijeni rezultat: -2.5
+                      Ishod testa: PASS
+
+***Test slučaj: Testiranje osnovnih operacija(sabiranje, oduzimanje, množenje i dijeljenje) nad više brojeva (pozitivni brojevi i samo oni negativni izrazi
+u kojima je negativni broj na prvom mjestu) 
+                  1. Sabiranje više pozitivnih brojeva
+                     Izraz: 5+2+10
+                     Očekivani rezultat: 17 (17.0)
+                     Dobijeni rezultat: 17.0
+                     Ishod testiranja: PASS
+                  2. Sabiranje više brojeva od kojih je prvi negativan a ostali pozitivni
+                     Izraz: -5+2+10
+                     Očekivani rezultat: 7 (7.0)
+                     Dobijeni rezultat: 7.0
+                     Ishod testiranja: PASS
+
+                  3. Oduzimanje više pozitivnih brojeva
+                     Izraz: 5-2-10
+                     Očekivani rezultat: -7 (-17.0)
+                     Dobijeni rezultat: -7.0
+                     Ishod testiranja: PASS
+                  4.Oduzimanje više brojeva od kojih je prvi negativan a ostali pozitivni
+                     Izraz: -5-2-10
+                     Očekivani rezultat: -17 (-17.0)
+                     Dobijeni rezultat: -17.0
+                     Ishod testiranja: PASS
+
+                  5. Množenje više pozitivnih brojeva
+                     Izraz: 5*2*10
+                     Očekivani rezultat: 100 (100.0)
+                     Dobijeni rezultat: 100.0
+                     Ishod testiranja: PASS
+                  6.Množenje više brojeva od kojih je prvi negativan a ostali pozitivni
+                     Izraz: -5*2*10
+                     Očekivani rezultat: -100 (-100.0)
+                     Dobijeni rezultat: -100.0
+                     Ishod testiranja: PASS
+
+                  7. Dijeljenje više pozitivnih brojeva
+                     Izraz: 5/2/10
+                     Očekivani rezultat: 0.25
+                     Dobijeni rezultat: 0.25
+                     Ishod testiranja: PASS
+                  8.Dijeljenje više brojeva od kojih je prvi negativan a ostali pozitivni
+                     Izraz: -5/2/10
+                     Očekivani rezultat: -0.25
+                     Dobijeni rezultat: -0.25
+                     Ishod testiranja: PASS
+
+***Test case: Testiranje prioriteta operatora
+                  1. Testiranje prioriteta operatora u slučaju gdje su svi brojevi pozitivni
+                     Izraz: 5+2*10/5
+                     Očekivani rezultat: 9 (9.0)
+                     Dobijeni rezultat: 9.0
+                     Ishod testiranja: PASS
+                  2. Testiranje prioriteta operatora u slučaju gdje je prvi broj negativan a ostali pozitivni
+                     Izraz: -5+2*10/5
+                     Očekivani rezultat -1 (-1.0)
+                     Dobijeni rezultat: -1.0
+                     Ishod testiranja: PASS
+***Test case: Testiranje osnovnih matematičkih operacija u čijem izrazu je 0 na drugom mjestu, odnosno gdje je nula ...
+                   1. Sabiranje u kojem je 0 na drugom mjestu (pozitivni brojevi)
+                     Izraz: 5+0
+                     Očekivani rezultat: 5 (5.0)
+                     Dobijeni rezultat: 5.0
+                     Ishod testiranja: PASS
+                   2.Sabiranje u kojem je 0 na drugom mjestu (negativni brojevi)
+                     Izraz: -5+0
+                     Očekivani rezultat: -5 (-5.0)
+                     Dobijeni rezultat: -5.0
+                     Ishod testiranja: PASS
+                  
+                   3.Oduzimanje u kojem je 0 na drugom mjestu (pozitivni brojevi)
+                     Izraz: 5-0
+                     Očekivani rezultat: 5 (5.0)
+                     Dobijeni rezultat: 5.0
+                     Ishod testiranja: PASS
+                   4.Oduzimanje u kojem je 0 na drugom mjestu (negativni brojevi)
+                     Izraz: -5-0
+                     Očekivani rezultat: -5 (-5.0)
+                     Dobijeni rezultat: -5.0
+                     Ishod testiranja: PASS
+
+                   5.Množenje u kojem je 0 na drugom mjestu (pozitivni brojevi)
+                     Izraz: 5*0
+                     Očekivani rezultat: 0 (0.0)
+                     Dobijeni rezultat: 0.0
+                     Ishod testiranja: PASS
+                   6.Množenje u kojem je 0 na drugom mjestu (negativni brojevi)
+                     Izraz: -5*0
+                     Očekivani rezultat: 0 (-0.0)
+                     Dobijeni rezultat: 0 (-0.0)
+                     Ishod testiranja: PASS
+
+                   7.Dijeljenje u kojem je 0 na drugom mjestu (pozitivni brojevi)
+                     Izraz: 5/0
+                     Očekivani rezultat:Infinity
+                     Dobijeni rezultat: Infinity
+                     Ishod testiranja: PASS
+                   8.Dijeljenje u kojem je 0 na drugom mjestu (negativni brojevi)
+                     Izraz: -5/0
+                     Očekivani rezultat: -Infinity
+                     Dobijeni rezultat: -Infinity
+                     Ishod testiranja: PASS
+
+//Očekivani izraz u dijeljenju sa nulom bi mogao biti npr. "nemoguće dijeliti sa nulom", međutim u konkretnom slučaju test je označen kao uspješan zbog programskog 
+jezika java koji automatski za izraze u kojima se dijeli s nulom prikazuje kao "Infiniti" ili "-Infinity".
+
+***Test case: Testiranje osnovnih operacija(sabiranje, oduzimanje, množenje i dijeljenje) nad velikim vrijednostima ( decimalni brojevi, cijeli pozitivni brojevi 
+i samo oni negativni izrazi u kojima je negativni broj na prvom mjestu zbog utvrđenog failur-a iz prvog test case-a)x
+                   1.Sabiranje velikih brojeva u slučaju sa oba cijela, pozitivna broja
+                     Izraz: 9999999+9999999
+                     Očekivan rezultat: 19 999 998 (19 999 998.0)
+                     Dobijeni rezultat: 1.9999998E7
+                     Ishod: FAILURE
+                   2.Sabiranje velikih brojeva u slučaju sa prvim negativnim cijelim brojem, te drugim pozitivnim cijelim brojem
+                     Izraz: -9999999 + 999
+                     Očekivan rezultat: -9 999 000 (-9 999 000.0)
+                     Dobijeni rezultat: (-9 999 000.0)
+                     Ishod: PASS
+                  3. Sabiranje velikih decimalnih brojeva u slučaju sa oba pozitivna broja
+                     Izraz: 9999999.99 + 9999999.99
+                     Očekivan rezultat: 20 000 000.0 
+                     Dobijeni rezultat: 2.0E7
+                     Ishod: FAILURE
+                   4.Sabiranje velikih decimalnih brojeva u slučaju sa prvim negativnim  brojem, te drugim pozitivnim  brojem
+                     Izraz: -9999999.99 + 999.99
+                     Očekivan rezultat: -9 999 000 (-9 999 000.0)
+                     Dobijeni rezultat: (-9 999 000.0)
+                     Ishod: PASS
+ 
+                  5.Oduzimanje velikih brojeva u slučaju sa oba cijela, pozitivna broja
+                     Izraz: 9999999-9999999
+                     Očekivan rezultat: 0 (0.0)
+                     Dobijeni rezultat: 0.0
+                     Ishod: PASS
+                  6.Oduzimanje velikih brojeva u slučaju sa prvim negativnim cijelim brojem, te drugim pozitivnim cijelim brojem
+                     Izraz: -9999999 - 9999999
+                     Očekivan rezultat: -19 999 998 (-19 999 998.0)
+                     Dobijeni rezultat: -1.9999998E7
+                     Ishod: FAILURE
+                  7.Oduzimanje velikih decimalnih brojeva u slučaju sa oba pozitivna broja
+                     Izraz: 9999999.99 - 9999999.99
+                     Očekivan rezultat: 0.0 
+                     Dobijeni rezultat: 0.0
+                     Ishod: PASS
+                  8.Oduzimanje velikih decimalnih brojeva u slučaju sa prvim negativnim brojem, te drugim pozitivnim  brojem
+                     Izraz: -9999999.99 - 9999999.99
+                     Očekivan rezultat: - 20 000 000.0 
+                     Dobijeni rezultat: -2.0E7
+                     Ishod: FAILURE
+
+                  9. Množenje velikih brojeva u slučaju sa oba cijela, pozitivna broja
+                     Izraz: 9999999 * 9999999
+                     Očekivan rezultat: 99 999 980 000 001 (99 999 980 000 001.0)
+                     Dobijeni rezultat: 9.9999984E13
+                     Ishod: FAILURE
+                 10.Množenje velikih brojeva u slučaju sa prvim negativnim cijelim brojem, te drugim pozitivnim cijelim brojem
+                     Izraz: -9999999 * 9999999
+                     Očekivan rezultat: -99 999 980 000 001 (-99 999 980 000 001.0)
+                     Dobijeni rezultat: -9.9999984E13
+                     Ishod: FAILURE
+                 11.Množenje velikih decimalnih brojeva u slučaju sa oba pozitivna broja
+                     Izraz: 9999999.99 * 9999999.99
+                     Očekivan rezultat: 99 999 999 800 000.00 
+                     Dobijeni rezultat: 1.0E14
+                     Ishod: FAILURE
+                  12.Množenje velikih decimalnih brojeva u slučaju sa prvim negativnim  brojem, te drugim pozitivnim  brojem
+                     Izraz: -9999999.99 * 9999999.99
+                     Očekivan rezultat:  -99 999 999 800 000.00 
+                     Dobijeni rezultat: -1.0E14
+                     Ishod: FAILURE
+
+                  13.Dijeljenje velikih brojeva u slučaju sa oba cijela, pozitivna broja
+                     Izraz: 9999999 / 9999999
+                     Očekivan rezultat: 1 (1.0)
+                     Dobijeni rezultat: 1.0
+                     Ishod: PASS
+                 14. Dijeljenje velikih brojeva u slučaju sa prvim negativnim cijelim brojem, te drugim pozitivnim cijelim brojem
+                     Izraz: -9999999 / 9999999
+                     Očekivan rezultat: -1 (1.0)
+                     Dobijeni rezultat: -1.0
+                     Ishod:PASS
+                 15.Dijeljenje velikih decimalnih brojeva u slučaju sa oba pozitivna broja
+                     Izraz: 9999999.99 / 9999999.99
+                     Očekivan rezultat: 1.0 
+                     Dobijeni rezultat: 1.0
+                     Ishod: PASS
+                 16.Dijeljenje velikih decimalnih brojeva u slučaju sa prvim negativnim  brojem, te drugim pozitivnim  brojem
+                     Izraz: -9999999.99 * 9999999.99
+                     Očekivan rezultat:  -1.0 
+                     DobiJeni rezultat: -1.0
+                     Ishod: PASS
+
+***Test case: Testiranje neispravnih izraza
+              1. Unos slova
+                 Izraz: 1 + a
+                 Očekivani izraz: ERROR
+                 Dobijeni izraz: ERROR
+                 Ishod testa: PASS
+
+              2. Unos nepotpunog izraza gdje nedostaje drugi broj
+                 Izraz: 1 +
+                 Očekivani izraz: 1 (1.0)  
+                 Dobijeni izraz: 1.0
+                 Ishod testa: PASS
+      
+              3. Unos nepotpunog izraza gdje nedostaje operator
+                 Izraz: 5 2
+                 Očekivani rezultat: ERROR
+                 Dobijeni rezultat: ERROR
+                 Ishod testa: PASS
+***Test case: Testiranje unosa "exit"
+              Izraz: exit
+              Očekivani rezultat: Zatvaranje kalkulatora
+              Dobijeni rezultat: Kalkulator se zatvara i automatski se ponovo pokreće
+              Ishod testa: FAILURE
+
+
+
+
+
+                  
+
+
+
+
+
+
+
+
+ 
+                      
+
+    
+                      
+
